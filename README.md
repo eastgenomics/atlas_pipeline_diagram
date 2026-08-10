@@ -36,7 +36,7 @@ flowchart LR
     msisensorpro --> tmb_msi_combiner
     chr_prefix --> pytmb
     vep --> pytmb
-    pytmb --> tmb_msi_combiner    
+    pytmb --> tmb_msi_combiner
     tmb_msi_combiner --> generate_workbook
 
     %% Main workflow - SNVs and QC
