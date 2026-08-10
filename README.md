@@ -32,10 +32,11 @@ flowchart LR
     cnv_chr_strip --> generate_workbook
     
     %% TMB and MSI
-    chr_prefix --> pytmb
     chr_prefix --> msisensorpro
-    pytmb --> tmb_msi_combiner
     msisensorpro --> tmb_msi_combiner
+    chr_prefix --> pytmb
+    vep --> pytmb
+    pytmb --> tmb_msi_combiner    
     tmb_msi_combiner --> generate_workbook
 
     %% Main workflow - SNVs and QC
