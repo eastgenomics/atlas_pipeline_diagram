@@ -25,11 +25,12 @@ flowchart LR
     amber --> purple
     cobalt --> purple
     purple --> cnvkit_batch
+    purple --> cnv_chr_strip
+    cnvkit_batch --> generate_workbook
+    cnv_chr_strip --> generate_workbook
+    cnvkit_batch --> cnv_chr_strip
     purple --> purple_plotter
     cnvkit_batch --> purple_plotter
-    purple --> cnv_chr_strip
-    cnvkit_batch --> cnv_chr_strip
-    cnv_chr_strip --> generate_workbook
     
     %% TMB and MSI
     chr_prefix --> msisensorpro
