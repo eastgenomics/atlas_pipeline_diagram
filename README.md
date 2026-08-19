@@ -42,13 +42,11 @@ flowchart LR
 
     %% Main workflow - SNVs and QC
     sentieon_umi --> sentieon_tnbam
-    sentieon_tnbam --> vcf_norm --> vep --> generate_workbook
+    sentieon_tnbam --> vcf_norm --> vep --> swiss_army_knife[swiss-army-knife] --> generate_workbook
     sentieon_tnbam --> sompy
-    sompy --> multiqc
     sentieon_tnbam --> picard
-    picard --> multiqc
-    sentieon_umi --> sompy
-    sentieon_umi --> picard
+    sentieon_umi --> sompy --> multiqc
+    sentieon_umi --> picard --> multiqc
     sentieon_umi --> verifybamid --> multiqc
     sentieon_umi --> sex_check --> multiqc
     sentieon_umi --> flagstat --> multiqc
