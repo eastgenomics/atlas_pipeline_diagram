@@ -1,4 +1,4 @@
-# Atlas Pipeline
+# Atlas Pipeline v1.0.0
 
 ### Legend
 
