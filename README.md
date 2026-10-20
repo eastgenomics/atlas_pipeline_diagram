@@ -10,8 +10,11 @@
 
 ```mermaid
 flowchart LR
-    bcl_convert --> sentieon_umi
-    sentieon_umi --> chr_prefix
+    %% Inputs
+    samplesheet[/"samplesheet<br/><small><i>Contains the OverrideCycles<br/>info for masking UMIs</i></small>"/] --> bcl_convert
+
+    bcl_convert --> sentieon_bwa
+    sentieon_bwa --> chr_prefix
 
     %% CNVs
     chr_prefix --> cnvkit_coverage[cnvkit-coverage]
@@ -41,16 +44,16 @@ flowchart LR
     tmb_msi_combiner --> generate_workbook
 
     %% Main workflow - SNVs and QC
-    sentieon_umi --> sentieon_tnbam
+    sentieon_bwa --> sentieon_tnbam
     sentieon_tnbam --> vcf_norm --> vep --> swiss_army_knife[swiss-army-knife] --> generate_workbook
     sentieon_tnbam --> sompy
     sentieon_tnbam --> picard
-    sentieon_umi --> sompy --> multiqc
-    sentieon_umi --> picard --> multiqc
-    sentieon_umi --> verifybamid --> multiqc
-    sentieon_umi --> sex_check --> multiqc
-    sentieon_umi --> flagstat --> multiqc
-    sentieon_umi --> mosdepth --> athena
+    sentieon_bwa --> sompy --> multiqc
+    sentieon_bwa --> picard --> multiqc
+    sentieon_bwa --> verifybamid --> multiqc
+    sentieon_bwa --> sex_check --> multiqc
+    sentieon_bwa --> flagstat --> multiqc
+    sentieon_bwa --> mosdepth --> athena
 
     %% Colour coding
     class sentieon_tnbam,vcf_norm,vep,sompy,picard,multiqc,verifybamid,sex_check,flagstat,mosdepth,athena main;
