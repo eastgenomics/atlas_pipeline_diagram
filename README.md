@@ -34,7 +34,7 @@ flowchart LR
     cnvkit_batch --> cnv_chr_strip
     purple --> purple_plotter
     cnvkit_batch --> purple_plotter
-    
+
     %% TMB and MSI
     chr_prefix --> msisensorpro
     msisensorpro --> tmb_msi_combiner
@@ -64,4 +64,3 @@ flowchart LR
     classDef cnv fill:#9b59b6,stroke:#6c3483,color:#fff;
     classDef msi fill:#27ae60,stroke:#1e8449,color:#fff;
 ```
-
